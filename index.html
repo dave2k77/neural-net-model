@@ -1,0 +1,122 @@
+import React from 'react';
+import { Github, ExternalLink } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+
+const LandingPage = () => {
+  const projects = [
+    {
+      title: "Interactive Neural Network Model",
+      description: "An interactive visualization that helps users understand how neural networks process information and make decisions. Explore the inner workings of artificial neural networks through this hands-on demonstration.",
+      link: "https://claude.site/artifacts/e8f36503-91eb-44ff-89f5-c5d46e2d914e",
+      image: "learning_systems.jpg"
+    },
+    {
+      title: "Cat or Dog Classifier",
+      description: "A machine learning application that can distinguish between images of cats and dogs. Upload your pet's photo and see the classifier in action!",
+      link: "https://claude.site/artifacts/0c49e554-4ef0-42be-a775-1d7ac3f120cc",
+      image: "kitten-playing-with-yarn-csa-images.jpg"
+    },
+    {
+      title: "Handwriting Recognition",
+      description: "Draw any character or text, and watch as the AI recognizes and digitizes your handwriting in real-time. Perfect for converting handwritten notes to digital text.",
+      link: "#", // Placeholder link
+      image: "cloud.jpg"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold text-gray-900">AI Interactive Tools</h1>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        {/* Introduction */}
+        <div className="text-center mb-12">
+          <p className="mt-2 text-lg text-gray-600">
+            Explore this collection of interactive AI tools designed to demonstrate
+            the power and accessibility of machine learning applications.
+          </p>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, index) => (
+            <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-48 object-cover"
+              />
+              <CardHeader>
+                <CardTitle className="text-xl font-bold">{project.title}</CardTitle>
+                <CardDescription>{project.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  View Project
+                </a>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Features Section */}
+        <div className="mt-16 grid gap-8 md:grid-cols-3">
+          <div className="text-center">
+            <h3 className="text-lg font-semibold">Real-time Processing</h3>
+            <p className="mt-2 text-gray-600">Experience instant results with our optimized AI models</p>
+          </div>
+          <div className="text-center">
+            <h3 className="text-lg font-semibold">Interactive Learning</h3>
+            <p className="mt-2 text-gray-600">Engage with AI systems through user-friendly interfaces</p>
+          </div>
+          <div className="text-center">
+            <h3 className="text-lg font-semibold">Open Source</h3>
+            <p className="mt-2 text-gray-600">Access and contribute to our projects on GitHub</p>
+          </div>
+        </div>
+
+        {/* Contact Section */}
+        <div className="mt-16 text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+          <p className="text-gray-600">
+            Interested in collaborating or learning more about these projects?
+          </p>
+          <div className="mt-4 space-x-4">
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              <Github className="w-4 h-4 mr-2" />
+              GitHub
+            </a>
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-200 mt-16">
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-gray-500 text-sm">
+            © {new Date().getFullYear()} All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default LandingPage;
